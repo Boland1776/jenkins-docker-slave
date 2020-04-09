@@ -25,6 +25,8 @@ RUN apt-get update && \
 #ADD settings.xml /home/jenkins/.m2/
 # Copy authorized keys
 #COPY .ssh/authorized_keys /home/jenkins/.ssh/authorized_keys
+
+# The key is local to THIS repo, so I created a .ssh/id_rsa file here
 COPY .ssh/id_rsa /home/jenkins/.ssh/authorized_keys
 
 RUN chown -R jenkins:jenkins /home/jenkins/.m2/ && \
